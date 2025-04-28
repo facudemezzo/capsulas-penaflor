@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grupo Peñaflor - Cápsulas</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: url('/mnt/data/bf564751-d89b-4cda-91cb-8e7eaa91b0c5.png') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+  }
+  header img {
+    width: 300px;
+    margin-top: 20px;
+  }
+  h2 {
+    color: #f0e6d2;
+    margin-bottom: 20px;
+  }
+  button {
+    background-color: #8B0000;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    margin: 10px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  button:hover {
+    background-color: #a83232;
+  }
+  #contenido {
+    margin-top: 20px;
+    font-size: 18px;
+  }
+  .wine-images img {
+    width: 100px;
+    margin: 10px;
+    border-radius: 8px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="/mnt/data/3dfed3e2-cf25-415e-b856-bf12f23f9921.png" alt="Grupo Peñaflor">
+</header>
+
+<h2>Catálogo de Cápsulas</h2>
+
+<button onclick="mostrar('trapiche')">Trapiche</button>
+<button onclick="mostrar('lasmoras')">Las Moras</button>
+<button onclick="mostrar('lisas')">Lisas</button>
+<button onclick="mostrar('varias')">Varias (NC - El Esteco - SA - LR - LM)</button>
+<button onclick="mostrar('otras')">Otras</button>
+
+<div id="contenido"></div>
+
+<div class="wine-images" style="margin-top: 40px;">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Trapiche_Malbec.jpg/320px-Trapiche_Malbec.jpg" alt="Trapiche">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Las_Moras_Wine_Bottle.jpg/320px-Las_Moras_Wine_Bottle.jpg" alt="Las Moras">
+</div>
+
+<script>
+function mostrar(opcion) {
+  var contenido = document.getElementById("contenido");
+  var datos = {
+    trapiche: {
+      codigos: ["IFR 0090757", "IFR 0090922", "IFR 0090935", "IFR 0090669"],
+      ubicacion: "Rack A"
+    },
+    lasmoras: {
+      codigos: ["IFR 0090551", "IFR 0090619", "IFR 0090913", "IFR 00901102"],
+      ubicacion: "Rack B"
+    },
+    lisas: {
+      codigos: ["IFR 0090830", "IFR 0090833", "IFR 0091035", "IFR 0090996"],
+      ubicacion: "Rack C"
+    },
+    varias: {
+      codigos: ["IFR 0090891", "IFR 0090702", "IFR 0090979", "IFR 0091052", "IFR 0091101"],
+      ubicacion: "Rack D"
+    },
+    otras: {
+      codigos: ["IFR 0091096", "IFR 0091099", "IFR 0091088"],
+      ubicacion: "Rack E"
+    }
+  };
+
+  var nombres = {
+    trapiche: "Trapiche",
+    lasmoras: "Las Moras",
+    lisas: "Lisas",
+    varias: "Varias (NC - El Esteco - SA - LR - LM)",
+    otras: "Otras"
+  };
+
+  var texto = "<h3>" + nombres[opcion] + "</h3><ul>";
+  datos[opcion].codigos.forEach(function(codigo) {
+    texto += "<li>" + codigo + "</li>";
+  });
+  texto += "</ul><p><strong>Ubicación:</strong> " + datos[opcion].ubicacion + "</p>";
+  contenido.innerHTML = texto;
+}
+</script>
+
+</body>
+</html>
